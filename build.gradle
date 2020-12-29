@@ -1,6 +1,6 @@
 buildscript {
-    ext.kotlin_version = '1.2.0'
-    ext.dokka_version = '0.9.16'
+    ext.kotlin_version = '1.3.72'
+    ext.dokka_version = '0.9.18'
 
     repositories {
         google()
@@ -16,7 +16,7 @@ buildscript {
 plugins {
     id 'java-gradle-plugin'
     id "com.gradle.plugin-publish" version "0.9.9"
-    id 'org.jmailen.kotlinter' version '1.5.0'
+    id 'org.jmailen.kotlinter' version '1.26.0'
 }
 
 group 'com.github.fhermansson'
@@ -38,7 +38,7 @@ dependencies {
     implementation("org.assertj:assertj-assertions-generator:2.2.0") {
         exclude module: 'logback-classic'
     }
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 }
 
 dokka {
@@ -80,6 +80,3 @@ compileTestKotlin {
     kotlinOptions.jvmTarget = "1.8"
 }
 
-task wrapper(type: Wrapper) {
-   gradleVersion = '4.10.3'
-}
