@@ -25,11 +25,11 @@ import java.net.URLClassLoader
 open class GenerateAssertions : DefaultTask(), ProjectEvaluationListener {
 
     @get:Internal
-    private val extension: AssertjGeneratorExtension by lazy {
+    val extension: AssertjGeneratorExtension by lazy {
         project.extensions.getByType(AssertjGeneratorExtension::class.java)
     }
 
-    private val classPath: FileCollection
+    val classPath: FileCollection
         @InputFiles
         @CompileClasspath
         get() = sourceSet!!.runtimeClasspath
@@ -40,7 +40,7 @@ open class GenerateAssertions : DefaultTask(), ProjectEvaluationListener {
         @Internal
         get() = field ?: extension.entryPointTypes
 
-    private val entryPointTypesAsSet
+    val entryPointTypesAsSet
         @Input
         get() = entryPointTypes!!.toSet()
     /**
@@ -51,7 +51,7 @@ open class GenerateAssertions : DefaultTask(), ProjectEvaluationListener {
         @Input
         get() = field ?: extension.outputDir ?: "src/${testSourceSet!!.name}/generated-java"
 
-    private val resolvedOutputDir: File
+    val resolvedOutputDir: File
         @OutputDirectory
         get() = project.file(outputDir!!)
 
@@ -59,12 +59,14 @@ open class GenerateAssertions : DefaultTask(), ProjectEvaluationListener {
      * The sourceSet containing classes to generate assertions for.
      */
     var sourceSet: SourceSet? = null
+        @Input
         get() = field ?: extension.sourceSet
 
     /**
      * The target sourceSet for generated assertions.
      */
     var testSourceSet: SourceSet? = null
+        @Input
         get() = field ?: extension.testSourceSet
 
     /**
