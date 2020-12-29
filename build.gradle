@@ -15,11 +15,11 @@ buildscript {
 
 plugins {
     id 'java-gradle-plugin'
-    id "com.gradle.plugin-publish" version "0.9.9"
+    id "com.gradle.plugin-publish" version "0.12.0"
     id 'org.jmailen.kotlinter' version '1.26.0'
 }
 
-group 'com.github.fhermansson'
+group 'com.github.dimamura'
 version '1.1.2'
 
 apply plugin: 'kotlin'
@@ -48,20 +48,20 @@ dokka {
 gradlePlugin {
     plugins {
         assertjGenerator {
-            id = 'com.github.fhermansson.assertj-generator'
+            id = 'com.github.dimamura.assertj-generator'
             implementationClass = 'com.github.fhermansson.gradle.assertj.plugin.AssertjGeneratorPlugin'
         }
     }
 }
 pluginBundle {
-    website = 'https://github.com/fhermansson/assertj-generator-gradle-plugin'
-    vcsUrl = 'https://github.com/fhermansson/assertj-generator-gradle-plugin'
-    description = 'Generate Assertj assertion classes.'
+    website = 'https://github.com/dimamura/assertj-generator-gradle-plugin'
+    vcsUrl = 'https://github.com/dimamura/assertj-generator-gradle-plugin'
+    description = 'Generate Assertj assertion classes. (forked from fhermansson/assertj-generator-gradle-plugin, update dependencies.)'
     tags = ['code-generation', 'assertj', 'java']
 
     plugins {
         assertjGenerator {
-            id = 'com.github.fhermansson.assertj-generator'
+            id = 'com.github.dimamura.assertj-generator'
             displayName = 'Assertj Generator plugin'
         }
     }
