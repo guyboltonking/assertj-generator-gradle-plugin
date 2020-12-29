@@ -31,7 +31,7 @@ repositories {
 }
 
 dependencies {
-    implementation("org.assertj:assertj-assertions-generator:2.0.0") {
+    implementation("org.assertj:assertj-assertions-generator:2.2.0") {
         exclude module: 'logback-classic'
     }
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"

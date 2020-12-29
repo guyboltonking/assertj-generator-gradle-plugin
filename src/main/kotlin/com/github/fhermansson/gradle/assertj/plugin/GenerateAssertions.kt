@@ -108,6 +108,10 @@ open class GenerateAssertions : DefaultTask(), ProjectEvaluationListener {
             AssertionsEntryPointType.BDD -> Template.Type.BDD_ASSERTIONS_ENTRY_POINT_CLASS
             AssertionsEntryPointType.SOFT -> Template.Type.SOFT_ASSERTIONS_ENTRY_POINT_CLASS
             AssertionsEntryPointType.JUNIT_SOFT -> Template.Type.JUNIT_SOFT_ASSERTIONS_ENTRY_POINT_CLASS
+            AssertionsEntryPointType.BDD_SOFT -> Template.Type.BDD_SOFT_ASSERTIONS_ENTRY_POINT_CLASS
+            AssertionsEntryPointType.JUNIT_BDD_SOFT -> Template.Type.JUNIT_BDD_SOFT_ASSERTIONS_ENTRY_POINT_CLASS
+            AssertionsEntryPointType.AUTO_CLOSEABLE_SOFT -> Template.Type.AUTO_CLOSEABLE_SOFT_ASSERTIONS_ENTRY_POINT_CLASS
+            AssertionsEntryPointType.AUTO_CLOSEABLE_BDD_SOFT -> Template.Type.AUTO_CLOSEABLE_BDD_SOFT_ASSERTIONS_ENTRY_POINT_CLASS
         }
 
         val fileName = "${entryPointType.name.toLowerCase()}_assertions_entry_point_class.txt"
@@ -140,7 +144,7 @@ open class GenerateAssertions : DefaultTask(), ProjectEvaluationListener {
         }
         val descriptionConverter = ClassToClassDescriptionConverter()
         val assertionGenerator = BaseAssertionGenerator()
-        assertionGenerator.setDirectoryWhereAssertionFilesAreGenerated(resolvedOutputDir.absolutePath)
+        assertionGenerator.setDirectoryWhereAssertionFilesAreGenerated(File(resolvedOutputDir.absolutePath))
         if (entryPointInherits!!) {
             entryPointTypesAsSet.forEach {
                 assertionGenerator.register(getTemplate(it))
