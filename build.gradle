@@ -1,8 +1,10 @@
 buildscript {
     ext.kotlin_version = '1.2.0'
-    ext.dokka_version = '0.9.15'
+    ext.dokka_version = '0.9.16'
 
     repositories {
+        google()
+        mavenCentral()
         jcenter()
     }
     dependencies {
@@ -27,6 +29,8 @@ apply plugin: 'org.jetbrains.dokka'
 sourceCompatibility = 1.8
 
 repositories {
+    google()
+    mavenCentral()
     jcenter()
 }
 
@@ -77,5 +81,5 @@ compileTestKotlin {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '4.3'
+   gradleVersion = '4.10.3'
 }
