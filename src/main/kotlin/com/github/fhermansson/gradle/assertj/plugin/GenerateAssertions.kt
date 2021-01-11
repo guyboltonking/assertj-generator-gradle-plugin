@@ -165,7 +165,9 @@ open class GenerateAssertions : DefaultTask(), ProjectEvaluationListener {
                     assertionGenerator.generateAssertionsEntryPointClassFor(classDescriptions, it, entryPointPackage)
                 }.toSet()
 
-        logger.lifecycle("Generated ${generatedAssertions.size} assertion classes, " +
-            "${entryPoints.size} entry point classes in $resolvedOutputDir")
+        logger.lifecycle(
+            "Generated ${generatedAssertions.size} assertion classes, " +
+                "${entryPoints.size} entry point classes in $resolvedOutputDir"
+        )
     }
 }
