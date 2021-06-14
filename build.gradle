@@ -1,6 +1,6 @@
 buildscript {
     ext.kotlin_version = '1.4.31'
-    ext.dokka_version = '0.10.0'
+    ext.dokka_version = '1.4.32'
 
     repositories {
         mavenCentral()
@@ -35,10 +35,6 @@ dependencies {
         exclude module: 'logback-classic'
     }
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-}
-
-dokka {
-    outputFormat = "javadoc"
 }
 
 gradlePlugin {
@@ -86,7 +82,7 @@ publishing {
 
 afterEvaluate {
     javadoc.enabled = false
-    publishPluginJavaDocsJar.from(dokka)
+    publishPluginJavaDocsJar.from(dokkaJavadoc)
 }
 
 compileKotlin {
