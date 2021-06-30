@@ -136,7 +136,7 @@ open class GenerateAssertions : DefaultTask(), ProjectEvaluationListener {
         }
     }
 
-    override fun beforeEvaluate(project: Project?) {
+    override fun beforeEvaluate(project: Project) {
     }
 
     @TaskAction
